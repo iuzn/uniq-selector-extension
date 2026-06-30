@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uniq Selector</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="header">
+      <div class="brand">
+        <img src="icons/icon-32.png" alt="Logo" class="logo">
+        <span class="title">Uniq Selector</span>
+      </div>
+      <div class="status-badge" id="status-badge">
+        <span class="indicator"></span>
+        <span class="status-text">Ready</span>
+      </div>
+    </header>
+
+    <div class="picker-panel">
+      <button id="toggle-pick-btn" class="picker-btn">
+        <div class="picker-icon-wrapper">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6">
+            <path d="M21 11.9996H19.9551M4.04493 11.9996H3M18.5001 5.49884L17.4999 6.49902M5.52355 18.521L6.52372 17.5208M5.50074 5.5226L6.50092 6.5218M18.522 18.4992L17.5218 17.499M11.9996 19.9988V20.999M11.9996 3V4.00018" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M15.1208 13.3309L13.2926 13.7405C13.2391 13.7521 13.1924 13.7852 13.1632 13.8309L12.2827 15.2076C11.8546 15.878 10.8301 15.697 10.656 14.9216L9.67333 10.0423C9.49917 9.264 10.3524 8.66467 11.0247 9.09082L15.4039 11.7022C16.0772 12.1293 15.8982 13.1567 15.1208 13.3309Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+          </svg>
+        </div>
+        <div class="picker-text">
+          <span class="picker-title" id="picker-btn-title">Inspect Element</span>
+          <span class="picker-desc" id="picker-btn-desc">Click here and hover over elements</span>
+        </div>
+      </button>
+    </div>
+
+    <section class="result-section hidden" id="result-section">
+      <div class="section-header">
+        <h2>Last Selected Element</h2>
+        <span class="verified-badge" id="result-verified">
+          <svg class="check-icon" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+          </svg>
+          Unique
+        </span>
+      </div>
+      
+      <div class="result-card">
+        <div class="result-meta">
+          <span class="tag-badge" id="result-tag">div</span>
+          <span class="type-badge" id="result-type">css-path</span>
+        </div>
+        <div class="selector-display-container">
+          <code class="selector-code" id="result-selector">div.container > button.btn</code>
+          <button class="icon-btn copy-btn" id="copy-result-btn" title="Copy to clipboard">
+            <svg class="copy-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+            </svg>
+            <span class="toast" id="copy-toast">Copied!</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="history-section">
+      <div class="section-header">
+        <h2>History</h2>
+        <button id="clear-history-btn" class="text-btn hidden">Clear All</button>
+      </div>
+      <div id="history-empty" class="history-empty">
+        <p>No selectors generated yet. Click above to start inspecting.</p>
+      </div>
+      <ul class="history-list" id="history-list">
+      </ul>
+    </section>
+
+    <footer class="footer">
+      <span>Uniq Selector Extension v1.0.0</span>
+    </footer>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

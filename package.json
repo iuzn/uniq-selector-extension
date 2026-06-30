@@ -1,0 +1,13 @@
+{
+  "name": "uniq-selector-extension",
+  "version": "1.0.0",
+  "description": "Premium Chrome Extension to generate unique CSS and XPath selectors using Uniq Selector.",
+  "main": "background.js",
+  "type": "module",
+  "scripts": {
+    "generate-icons": "bun run generate_icons.js"
+  },
+  "dependencies": {
+    "sharp": "^0.33.4"
+  }
+}

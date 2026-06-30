@@ -1,0 +1,5 @@
+node_modules/
+.DS_Store
+build/icons/icon-*.png
+bun.lockb
+*.log
